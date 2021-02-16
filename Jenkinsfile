@@ -5,6 +5,7 @@ pipeline {
      stages {
       stage ('Source composition analysis') {
         steps {
+          sh 'sudo usermod -a -G docker jenkins'
           sh 'rm owasp* || true'
           sh 'wget "https://raw.githubusercontent.com/krunalbhoyar/Spring-Petclinic/master/owasp-dependency-check.sh" '
           sh 'chmod +x owasp-dependency-check.sh'
