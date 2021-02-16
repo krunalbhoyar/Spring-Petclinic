@@ -2,7 +2,7 @@ pipeline {
 
     agent any
     
-    stages {
+     stages {
       stage ('Source composition analysis') {
         steps {
           sh 'rm owasp* || true'
