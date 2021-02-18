@@ -14,7 +14,7 @@ pipeline {
             
           
         }
-    }   
+    }   #above part is running well , below part has issue
          
       stage('Quality Gate Status Check') {
           steps { 
