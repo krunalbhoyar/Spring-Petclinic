@@ -12,7 +12,7 @@ pipeline {
           sh 'bash owasp-dependency-check.sh'
           sh 'cat /var/lib/jenkins/workspace/Assignment_2/odc-reports/dependency-check-report.xml'
             
-          
+          #here html folder created scp it and open , will open in browser
         }
     }   #above part is running well , below part has issue
          
