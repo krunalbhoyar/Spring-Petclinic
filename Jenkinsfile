@@ -12,23 +12,9 @@ pipeline {
           sh 'bash owasp-dependency-check.sh'
           sh 'cat /var/lib/jenkins/workspace/Assignment_2/odc-reports/dependency-check-report.xml'
             
-          #here html folder created scp it and open , will open in browser
+          #here html folder created, scp it and open , will open in browser
         }
-    }   #above part is running well , below part has issue
-         
-      stage('Quality Gate Status Check') {
-          steps { 
-              script{
-          withSonarQubeEnv('sonarqube')
-          sh 'mvn sonar:sonar'
-                    }
-          timeout(time: 1, unit: 'HOURS') {
-          def qg = waitforQualityGate()
-              if (qg.status != 'OK')
-               error "Pipeline aborted due to quality gate failure: $(qg.status)"
-              }
-          }   
-             sh 'mvn clean install'
-          }
+    }   
+          
       }
 }
